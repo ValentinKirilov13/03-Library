@@ -31,5 +31,8 @@ jobs:
     - name: Build Server
       run: npm run server &    
 
+    - name: Wait for UI and Server to be ready
+      run: npx wait-on http://localhost:3000 http://localhost:3030
+
     - name: Run Playwright tests  
       run: npm run test
