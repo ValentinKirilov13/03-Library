@@ -20,6 +20,7 @@ const main = document.querySelector('main');
 setUserNav();
 document.getElementById('logoutBtn').addEventListener('click', logout);
 
+page('/', () => page.redirect('/catalog'));
 page('/login', decorateContext, loginPage);
 page('/register', decorateContext, registerPage);
 page('/create', decorateContext, createPage);
