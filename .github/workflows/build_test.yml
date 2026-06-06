@@ -29,10 +29,10 @@ jobs:
       run: npm install wait-on@9.0.10
 
     - name: Build UI
-      run: npm run start &
+      run: nohup npm run start &
     
     - name: Build Server
-      run: npm run server &    
+      run: nohup npm run server &    
 
     - name: Wait for UI and Server to be ready
       run: npx wait-on http://localhost:3000 http://localhost:3030
