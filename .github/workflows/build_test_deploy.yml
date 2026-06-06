@@ -10,12 +10,25 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v6
+    - name: Repo checkout  
+      uses: actions/checkout@v6
+      
     - name: Use Node.js 24
       uses: actions/setup-node@v6
       with:
         node-version: 24
         cache: 'npm'
-    - run: npm ci
-    - run: npm run build --if-present
-    - run: npm test
+
+    - name: Clean install project dependencies    
+      run: npm ci
+
+    - name: Install Playwright Browsers
+      run: npx playwright install --with-deps
+    # - name: Run Playwright tests
+    #   run: npx playwright test
+
+    - name: Build UI
+      run: npm run start
+    
+    - name: Run Playwright tests  
+      run: npm test
