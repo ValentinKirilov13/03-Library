@@ -25,6 +25,9 @@ jobs:
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
 
+    - name: Install Wait on
+      run: npm install wait-on@9.0.10
+
     - name: Build UI
       run: npm run start &
     
