@@ -30,5 +30,8 @@ jobs:
     - name: Build UI
       run: npm run start &
     
+    - name: Build Server
+      run: npm run server &    
+
     - name: Run Playwright tests  
-      run: npm test
+      run: npm run test
