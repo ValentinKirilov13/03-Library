@@ -25,17 +25,11 @@ jobs:
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
 
-    - name: Install Wait on
-      run: npm install wait-on@9.0.10
-
     - name: Build UI
-      run: nohup npm run start &
+      run: npm run start &
     
     - name: Build Server
-      run: nohup npm run server &    
-
-    - name: Wait for UI and Server to be ready
-      run: npx wait-on http://localhost:3000 http://localhost:3030
+      run: npm run server &    
 
     - name: Run Playwright tests  
       run: npm run test
